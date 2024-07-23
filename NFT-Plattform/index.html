@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NFT-Marketplace</title>
+  <meta name="description" content="NFT-Marketplace Webseite fürs Ver- und kaufen von digitalen Assets">
+  <meta name="keywords" content="NFT, NFT-Marketplace, Marketplace, Digital Assets">
+  <meta name="author" content="Ibrahim Alakeel">
+  <link rel="stylesheet" href="css/style.css"> <!-- Verlinke deine externe CSS-Datei hier -->
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" class="logo">NFT-Marketplace</a>
+      <ul>
+        <li><a href="#current-nfts">Aktuelle NFTs</a></li>
+        <li><a href="#my-nfts">Meine NFTs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <!-- Slides starts -->
+
+  <div class="slider">
+    <span style="--i:1;"><img src="./Assets/Bilder/image-1.jpg" alt="images-1"></span>
+    <span style="--i:2;"><img src="./Assets/Bilder/image-2.jpg" alt="images-2"></span>
+    <span style="--i:3;"><img src="./Assets/Bilder/image-3.jpg" alt="images-3"></span>
+    <span style="--i:4;"><img src="./Assets/Bilder/image-4.jpg" alt="images-4"></span>
+    <span style="--i:5;"><img src="./Assets/Bilder/image-5.jpg" alt="images-5"></span>
+    <span style="--i:6;"><img src="./Assets/Bilder/image-6.jpg" alt="images-6"></span>
+    <span style="--i:7;"><img src="./Assets/Bilder/image-7.jpg" alt="images-7"></span>
+    <span style="--i:8;"><img src="./Assets/Bilder/image-1.jpg" alt="images-8"></span>
+</div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide() {
+      slides[currentSlide].style.display = 'block';
+      setTimeout(hideSlide, 3000); // Change slide every 3 seconds
+    }
+
+    function hideSlide() {
+      slides[currentSlide].style.display = 'none';
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide();
+    }
+
+    showSlide(); // Start the slideshow
+  </script>
+
+
+  
+  <main>
+    <section id="hero">
+      <h1>Entdecke einzigartige NFTs</h1>
+      <canvas id="canvas" width="375" height="50"
+         style="border:1px dashed orangered;"> 
+      </canvas>
+      <br><br>
+      <a href="#current-nfts" class="cta-button">Zu den NFTs</a>
+
+    </section>
+
+    <!-- Meine Canvas Begin -->
+    <script>
+ 
+      ( () => {
+    
+        let canvas = document.getElementById("canvas");
+        let context = canvas.getContext("2d");
+        context.font = "15px Arial";
+        context.fillText("Finde und sammele erstaunliche digitale Kunstwerke",10,30);
+    
+        setInterval( () => {
+            let width = canvas.style.borderWidth.replace('px', '');
+            canvas.style.borderWidth = (width % 5 + 1) + "px";
+        }, 1000)
+    
+      } )();
+    
+    </script>
+
+    <section id="current-nfts">
+      <h2>Aktuelle NFTs</h2>
+      <div class="container swiper">
+        <div class="slide-container-bilder">
+          <h1>Bilder</h1>
+          <div class="card-wrapper swiper-wrapper">
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <img src="./Assets/Bilder/image-1.jpg" alt="" />
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <img src="./Assets/Bilder/image-2.jpg" alt="" />
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-2</h3>
+                  <h4 class="job">Rank #2</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <img src="./Assets/Bilder/image-3.jpg" alt="" />
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-3</h3>
+                  <h4 class="job">Rank #3</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <img src="./Assets/Bilder/image-4.jpg" alt="" />
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-4</h3>
+                  <h4 class="job">Rank #4</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <img src="./Assets/Bilder/image-5.jpg" alt="" />
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-5</h3>
+                  <h4 class="job">Rank #5</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next bild-next"></div>
+        <div class="swiper-button-prev bild-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="container swiper">
+        <div class="slide-container-videos">
+          <h1>Video</h1>
+          <div class="card-wrapper swiper-wrapper">
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <video controls>
+                  <source src="./Assets/Video/1-video.mp4" type="video/mp4">
+                  <source src="./Assets/Video/1-video.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+             </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <video controls>
+                  <source src="./Assets/Video/2-video.mp4" type="video/mp4">
+                  <source src="./Assets/Video/2-video.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <video controls>
+                  <source src="./Assets/Video/3-video.mp4" type="video/mp4">
+                  <source src="./Assets/Video/3-video.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <video controls>
+                  <source src="./Assets/Video/4-video.mp4" type="video/mp4">
+                  <source src="./Assets/Video/4-video.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <video controls>
+                  <source src="./Assets/Video/2-video.mp4" type="video/mp4">
+                  <source src="./Assets/Video/2-video.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next video-next"></div>
+        <div class="swiper-button-prev video-prev"></div>
+      </div>
+
+      <div class="container swiper">
+        <div class="slide-container-audios">
+          <h1>Audio </h1>
+          <div class="card-wrapper swiper-wrapper">
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <audio controls>
+                  <source src="./Assets/Audio/audio-1.wav" type="audio/wav">
+                  <source src="./Assets/Audio/audio-1.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <audio controls>
+                  <source src="./Assets/Audio/audio-2.wav" type="audio/wav">
+                  <source src="./Assets/Audio/audio-2.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <audio controls>
+                  <source src="./Assets/Audio/audio-1.wav" type="audio/wav">
+                  <source src="./Assets/Audio/audio-1.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <audio controls>
+                  <source src="./Assets/Audio/audio-2.wav" type="audio/wav">
+                  <source src="./Assets/Audio/audio-2.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+            <div class="card swiper-slide">
+              <div class="image-box">
+                <audio controls>
+                  <source src="./Assets/Audio/audio-2.wav" type="audio/wav">
+                  <source src="./Assets/Audio/audio-2.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="profile-details">
+                <div class="name-job">
+                  <h3 class="name">Naruto-1</h3>
+                  <h4 class="job">Rank #1</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next audio-next"></div>
+        <div class="swiper-button-prev audio-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    
+  </section>
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  
+
+  <!-- Meine NFT starts -->
+    <section id="my-nfts">
+      <h2>Meine NFTs</h2>
+      <div class="container-meine-nft">
+        <div class="search-box">
+            <i class="bx bx-search"></i>
+            <input type="text" id="searchInput" placeholder="Suche NFT ">
+        </div>
+        <button id="generierePDF" class="cta-button">Generiere PDF</button>
+        <div class="images">
+            <div class="image-box" data-name="spiderman">
+                <img src="./Assets/Bilder/image-1.jpg" alt="">
+                <h6>spiderman</h6>
+            </div>
+            <div class="image-box" data-name="joker">
+              <img src="./Assets/Bilder/image-2.jpg" alt="">
+              <h6>joker</h6>
+            </div>
+            <div class="image-box" data-name="ironman">
+              <img src="./Assets/Bilder/image-3.jpg" alt="">
+              <h6>ironman</h6>
+            </div>
+            <div class="image-box" data-name="passenger">
+              <img src="./Assets/Bilder/image-4.jpg" alt="">
+              <h6>passenger</h6>
+            </div>
+            <div class="image-box" data-name="space">
+              <img src="./Assets/Bilder/image-5.jpg" alt="">
+              <h6>the space</h6>
+            </div>
+            <div class="image-box" data-name="spiderman">
+              <img src="./Assets/Bilder/image-6.jpg" alt="">
+              <h6>spiderman 2</h6>
+            </div>
+            <div class="image-box" data-name="universe">
+              <img src="./Assets/Bilder/image-7.jpg" alt="">
+              <h6>the universe</h6>
+            </div>
+            <div class="image-box" data-name="holiday">
+              <img src="./Assets/Bilder/image-8.jpg" alt="">
+              <h6>holiday</h6>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script2.js"></script>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2023 NFT-Marketplace. Alle Rechte vorbehalten.</p>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
